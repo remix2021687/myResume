@@ -1,14 +1,37 @@
 import Image from "next/image";
 import Link from "next/link";
+// import { ArrowUpRightIcon } from "@phosphor-icons/react";
 import { JetBrainsMono } from "@ui/fonts";
 import logo from "@public/img/logo.jpg";
 
 export const Header: React.FC = () => {
+	const LinksList: {
+		name: string;
+		herf: string;
+	}[] = [
+		{
+			name: "Work",
+			herf: "/",
+		},
+		{
+			name: "About",
+			herf: "/",
+		},
+		{
+			name: "Stack",
+			herf: "/",
+		},
+		{
+			name: "Contact",
+			herf: "/",
+		},
+	];
 	return (
 		<nav className='flex flex-row justify-between items-center mx-8 mt-4 px-8 py-3 bg-[#0A0E18]/80 shadow-[0_12px_32px_#000000]/55 border border-white/8 rounded-full'>
 			<section className='flex flex-row gap-4'>
 				<Image
 					src={logo}
+					loading='eager'
 					alt='logo'
 					className='object-cover rounded-full max-w-10 max-h-10 border border-white/15'
 				/>
@@ -32,11 +55,16 @@ export const Header: React.FC = () => {
 					</h2>
 				</section>
 			</section>
-			<section>
-				<Link href={"/"}>Work</Link>
-				<Link href={"/"}>About</Link>
-				<Link href={"/"}>Stack</Link>
-				<Link href={"/"}>Contact</Link>
+			<section className='flex flex-row gap-6'>
+				{LinksList.map((data, index) => (
+					<Link
+						className='text-[14px] text-[#C7C4D7] font-medium'
+						key={index + 1}
+						href={data.herf}>
+						{data.name}
+					</Link>
+				))}
+				<button>{/* Let's Talk <ArrowUpRightIcon /> */}</button>
 			</section>
 		</nav>
 	);
