@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-// import { ArrowUpRightIcon } from "@phosphor-icons/react";
 import { JetBrainsMono } from "@ui/fonts";
+import { HeaderButton } from "./components";
 import logo from "@public/img/logo.jpg";
 
 export const Header: React.FC = () => {
@@ -45,7 +45,7 @@ export const Header: React.FC = () => {
 					</h4>
 				</section>
 			</section>
-			<section className='flex flex-row justify-center items-center gap-2.5 px-4 py-1.5 bg-[#262A35]/60 border border-white/10 rounded-full'>
+			<section className='flex flex-row justify-center items-center gap-2.5 px-4 py-1.5 bg-[#262A35]/60 border border-white/10 rounded-full shadow-[0px_2px_4px_#000000]/5'>
 				<span className='w-2 h-2 rounded-full bg-[#4CD7F6]'></span>
 				<section className='flex flex-row justify-center items-center'>
 					<h2 className='flex flex-row items-center justify-center gap-2.5 text-[#DFE2F1] text-[14px] font-medium'>
@@ -55,7 +55,7 @@ export const Header: React.FC = () => {
 					</h2>
 				</section>
 			</section>
-			<section className='flex flex-row gap-6'>
+			<section className='flex flex-row justify-center items-center gap-6'>
 				{LinksList.map((data, index) => (
 					<Link
 						className='text-[14px] text-[#C7C4D7] font-medium'
@@ -64,7 +64,7 @@ export const Header: React.FC = () => {
 						{data.name}
 					</Link>
 				))}
-				<button>{/* Let's Talk <ArrowUpRightIcon /> */}</button>
+				<HeaderButton />
 			</section>
 		</nav>
 	);
